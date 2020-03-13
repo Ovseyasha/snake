@@ -1,0 +1,33 @@
+html, body {
+	margin: 0;
+}
+.fields{
+	border-left: 1px solid gray;
+	border-top: 1px solid gray;
+	/* width: 400px; */
+	margin: 5px 5px;
+	overflow: hidden;
+	display: inline-block;
+	text-align: center;
+}
+.fields > div{
+	width: 20px;
+	height: 20px;
+	box-sizing: border-box;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	float: left;
+
+}
+.fields > div.row-start{
+	clear: both; /*  каждый первый див */
+}
+.fields > div[data-game="fruit"]{
+	background: url('../img/apple.svg') 100% center no-repeat;
+}
+.fields > div[data-game="snake"]{
+	background: yellow;
+}
+.fields > div[data-game="wall"]{
+	background: blue;
+}

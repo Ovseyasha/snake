@@ -1,0 +1,64 @@
+class Snake extends Elem{
+	constructor(matrix, cords, course){
+		super(matrix, cords);
+		this.course = course;
+		this.alive =  true;
+		this.value = 'snake';
+	}
+	
+	move(){
+		if (!this.alive) {
+			return;
+		}
+		// this.matrix.setCell(this.x, this.y, '');// это убрать
+		var head = this.cords[0].slice(); // слайс для того что бы была копия массива а не сслыка голова змеи то еслть превый масив в двумерном массиве
+
+		var lastX = head[0]; // в массиве первый ключ это x
+		var lastY = head[1]; // в массиве второй ключ это y
+
+
+		switch(this.course){
+			case 'up':
+			head[1]--;
+			break;
+			case 'right':
+			head[0]++;
+			break;
+			case 'left':
+			head[0]--;
+			break;
+			case 'down':
+			head[1]++;
+			break;
+		}
+		// if (this.x < 1){
+		// 	this.x = this.matrix.cols;
+		// } 
+		// if (this.x > this.matrix.cols){
+		// 	this.x = 1;
+		// }
+
+		// if (this.y < 1){
+		// 	this.y = this.matrix.rows;
+		// } 
+		// if (this.y > this.matrix.rows){
+		// 	this.y = 1;
+		// }
+
+		if (!this._checkAlive(head)) { // если фуция выключен то флаг на  false
+			this.alive = false;
+			return;
+		}
+
+		var tail = this.cords.pop(); // .pop() удаляет плсдений элемент массива
+		this.matrix.setCell(tail[0], tail[1], ''); // убирает видимость хвоста
+
+		this.cords.unshift(head); // в начала массива положить голову( которая ++ в switch
+		this.matrix.setCell(head[0], head[1], 'snake');
+	}
+	//УБИВАТЬ ЕСЛИ НА СТЕНУ НАЕХАЛА
+	_checkAlive (head){
+		return head[0] >= 1 && head[0] <= this.matrix.cols && // если координаты змеи выходят за пределы карты то она останавливается
+			  head[1] >= 1 && head[1] <= this.matrix.rows;
+	}
+}
