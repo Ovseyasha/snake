@@ -4,6 +4,7 @@ class Snake extends Elem{
 		this.course = course;
 		this.alive =  true;
 		this.value = 'snake';
+		this.eating = false;
 	}
 	
 	move(){
@@ -50,8 +51,24 @@ class Snake extends Elem{
 			return;
 		}
 
-		var tail = this.cords.pop(); // .pop() удаляет плсдений элемент массива
-		this.matrix.setCell(tail[0], tail[1], ''); // убирает видимость хвоста
+		let nowHead = this.matrix.getCell(head[0], head[1]);
+	// проверка смерти и роста
+		if (nowHead !== 'apple' && nowHead !== 'banana' && nowHead !== 'grapes') {
+			var tail = this.cords.pop(); // .pop() удаляет плсдений элемент массива	
+			this.matrix.setCell(tail[0], tail[1], ''); // убирает видимость хвоста
+			this.eating = false;
+		}else{
+			this.eating = true;
+		}
+		if (nowHead == 'wall') {
+			this.alive =  false;
+		}
+		if (nowHead == 'snake') {
+			this.alive =  false;
+		}
+		// console.log(this.matrix.getCell(head[0], head[1]));
+
+		
 
 		this.cords.unshift(head); // в начала массива положить голову( которая ++ в switch
 		this.matrix.setCell(head[0], head[1], 'snake');

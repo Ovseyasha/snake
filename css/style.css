@@ -11,8 +11,8 @@ html, body {
 	text-align: center;
 }
 .fields > div{
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 	box-sizing: border-box;
 	border-right: 1px solid gray;
 	border-bottom: 1px solid gray;
@@ -22,9 +22,17 @@ html, body {
 .fields > div.row-start{
 	clear: both; /*  каждый первый див */
 }
-.fields > div[data-game="fruit"]{
+
+.fields > div[data-game="apple"]{
 	background: url('../img/apple.svg') 100% center no-repeat;
 }
+.fields > div[data-game="banana"]{
+	background: url('../img/banana.svg') 100% center no-repeat;
+}
+.fields > div[data-game="grapes"]{
+	background: url('../img/grapes.svg') 100% center no-repeat;
+}
+
 .fields > div[data-game="snake"]{
 	background: yellow;
 }
