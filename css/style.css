@@ -34,8 +34,33 @@ html, body {
 }
 
 .fields > div[data-game="snake"]{
-	background: yellow;
+	background: #65793E;
 }
 .fields > div[data-game="wall"]{
 	background: blue;
+}
+.popup{
+  display: none;
+  position:fixed;
+  background-color: grey;
+  top: 40px;
+  left: 33%;
+  width: 700px;
+  height: 250px;
+  z-index: 2;
+  text-align: center;
+}
+.overlay{
+  z-index: 1;
+  display: none;
+  position:fixed;
+  background-color: white;
+  width: 100%;
+  height: 970px;
+  opacity: .7;
+  cursor: pointer;
+}
+.restart{
+	cursor: pointer;
+	margin: 50px;
 }

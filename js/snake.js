@@ -4,6 +4,8 @@ class Snake extends Elem{
 		this.course = course;
 		this.alive =  true;
 		this.value = 'snake';
+		this.newCourse = course;
+
 		this.eating = false;
 	}
 	
@@ -11,6 +13,8 @@ class Snake extends Elem{
 		if (!this.alive) {
 			return;
 		}
+		this.eating = false;
+		this.course = this.newCourse; // присваеваем новый курс для того что бы
 		// this.matrix.setCell(this.x, this.y, '');// это убрать
 		var head = this.cords[0].slice(); // слайс для того что бы была копия массива а не сслыка голова змеи то еслть превый масив в двумерном массиве
 
@@ -56,16 +60,14 @@ class Snake extends Elem{
 		if (nowHead !== 'apple' && nowHead !== 'banana' && nowHead !== 'grapes') {
 			var tail = this.cords.pop(); // .pop() удаляет плсдений элемент массива	
 			this.matrix.setCell(tail[0], tail[1], ''); // убирает видимость хвоста
-			this.eating = false;
 		}else{
 			this.eating = true;
 		}
-		if (nowHead == 'wall') {
+		if (nowHead == 'wall' || nowHead == 'snake') {
 			this.alive =  false;
+			return; // для того что бы не ела дальше
 		}
-		if (nowHead == 'snake') {
-			this.alive =  false;
-		}
+		
 		// console.log(this.matrix.getCell(head[0], head[1]));
 
 		

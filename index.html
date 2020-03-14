@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Змейка</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="fields">
 		
 	</div>
+	<span class="score">Score:</span>
+	<span class="points"></span>
+	<div class="popup">
+		<div><button type="submit" class="restart" onClick="window.location.reload()">Заново</button></div>
+	</div>
 
-	<div class="points"></div>
+    <div class="overlay"></div>
 </body>
-<script src="script.js"></script>
-<script src="matrix.js"></script>
-<script src="elem.js"></script>
-<script src="snake.js"></script>
-<script src="fruit.js"></script>
-<script src="wall.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/script.js"></script>
+<script src="js/matrix.js"></script>
+<script src="js/elem.js"></script>
+<script src="js/snake.js"></script>
+<script src="js/fruit.js"></script>
+<script src="js/wall.js"></script>
+
 </html>
