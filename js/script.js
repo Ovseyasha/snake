@@ -66,7 +66,7 @@ window.onload = function(e) {
 			// }
 		}
 		
-	}, 400);
+	}, 200);
 	// let button = document.querySelector('.restart');
 	// // console.log(button);
 	// button.addEventListener('click', function () {
